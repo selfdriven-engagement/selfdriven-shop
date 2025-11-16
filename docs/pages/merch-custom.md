@@ -7,7 +7,7 @@ permalink: /merch/custom/
 ### Merch
 
 - [Merch Artwork](https://github.com/selfdriven-engagement/resources/tree/main/our-identity/merch/artwork)
-- [Merch Colours](https://resources.selfdriven.foundation/colours-merch/)
+- [Merch Colours](https://resources.selfdriven.foundation/colours/)
 - [Online Special Order Form](https://forms.gle/PtzmN1sgAR4LN3ps8)
 
 ### Ordering
