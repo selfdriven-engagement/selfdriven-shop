@@ -1,15 +1,16 @@
 ---
 layout: default
 title: Custom Merch - selfdriven Shop
-permalink: /merch/custom/
+permalink: /merch/custom/by-selfdriven/
 ---
 
 ### Merch
 
+- [**Online Special Order Form**](https://forms.gle/PtzmN1sgAR4LN3ps8)
 - [Merch Artwork](https://github.com/selfdriven-engagement/resources/tree/main/our-identity/merch/artwork)
 - [Merch Colours](https://resources.selfdriven.foundation/colours/)
 
-### Ordering
+### Ordering for Reference
 - [screenlab.co](https://screenlab.co)
     - Based in Australia.
     - Global delivery.
