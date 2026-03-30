@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Home
+title: selfdriven Shop
 ---
 
-## We are exploring the best options for a shop.
 
-In the meantime, you can <a href="/merch/custom/">design and order your own custom clothing and accessories</a>.
+- [Clothing Shop](https://order.screenlab.co/merch-store/selfdriven)
+- [Design and order your own custom clothing and accessories](merch/custom/).
