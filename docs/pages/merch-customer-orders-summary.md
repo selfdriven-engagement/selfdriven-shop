@@ -6,7 +6,7 @@ permalink: /merch/custom/orders-summary
 
 # 🧾 Consolidated Clothing Orders
 
-## 👕 Classic Tee | 5026
+## Classic Tee | 5026
 
 | Colour        | Size | Qty | Unit Price | Total |
 |---------------|------|-----|------------|-------|
@@ -21,7 +21,7 @@ permalink: /merch/custom/orders-summary
 | Pine Green    | LRG  | 1   | $35        | $35   |
 | **Total**     |      | **11** |            | **$385** |
 
-## 👕 Staple Tee | 5001
+## Staple Tee | 5001
 
 | Colour        | Size | Qty | Unit Price | Total |
 |---------------|------|-----|------------|-------|
@@ -36,19 +36,19 @@ permalink: /merch/custom/orders-summary
 | Mushroom      | LRG  | 1   | $31        | $31   |
 | **Total**     |      | **10** |            | **$310** |
 
-## 👕 Wo's Basic Tee | 4051
+## Wo's Basic Tee | 4051
 
 | Colour | Size | Qty | Unit Price | Total |
 |--------|------|-----|------------|-------|
 | White  | MED  | 1   | $28        | $28   |
 
-## 👕 Wo's Maple Tee | 4001
+## Wo's Maple Tee | 4001
 
 | Colour | Size | Qty | Unit Price | Total |
 |--------|------|-----|------------|-------|
 | Mineral | XSM | 1   | $31        | $31   |
 
-## 🧥 Relax Hood | 5161
+## Relax Hood | 5161
 
 | Colour         | Size | Qty | Unit Price | Total |
 |----------------|------|-----|------------|-------|
@@ -59,7 +59,7 @@ permalink: /merch/custom/orders-summary
 | Black          | MED  | 1   | $82        | $82   |
 | **Total**      |      | **5** |            | **$394** |
 
-## 🧥 Supply Hood | 5101
+## Supply Hood | 5101
 
 | Colour        | Size | Qty | Unit Price | Total |
 |---------------|------|-----|------------|-------|
@@ -67,17 +67,9 @@ permalink: /merch/custom/orders-summary
 | Ecru          | XLG  | 1   | $55        | $55   |
 | **Total**     |      | **2** |            | **$110** |
 
-## 🧥 Wo's Stencil Half Zip Crew | 4125
+## Wo's Stencil Half Zip Crew | 4125
 
 | Colour | Size | Qty | Unit Price | Total |
 |--------|------|-----|------------|-------|
 | Black  | MED  | 1   | $61        | $61   |
-
-# 📊 Summary
-
-| Category | Total Qty | Total Spend |
-|----------|----------|-------------|
-| Tees     | 22       | $754        |
-| Hoodies / Outerwear | 8 | $565 |
-| **Grand Total** | **30 items** | **$1,319** |
 
