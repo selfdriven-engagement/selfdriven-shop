@@ -7,6 +7,7 @@ permalink: /merch/custom/orders-summary
 # 🧾 Consolidated Clothing Orders
 
 ## 👕 Classic Tee | 5026
+
 | Colour        | Size | Qty | Unit Price | Total |
 |---------------|------|-----|------------|-------|
 | Plum          | LRG  | 1   | $35        | $35   |
@@ -23,6 +24,7 @@ permalink: /merch/custom/orders-summary
 ---
 
 ## 👕 Staple Tee | 5001
+
 | Colour        | Size | Qty | Unit Price | Total |
 |---------------|------|-----|------------|-------|
 | Bubblegum     | LRG  | 1   | $31        | $31   |
@@ -39,6 +41,7 @@ permalink: /merch/custom/orders-summary
 ---
 
 ## 👕 Wo's Basic Tee | 4051
+
 | Colour | Size | Qty | Unit Price | Total |
 |--------|------|-----|------------|-------|
 | White  | MED  | 1   | $28        | $28   |
@@ -46,6 +49,7 @@ permalink: /merch/custom/orders-summary
 ---
 
 ## 👕 Wo's Maple Tee | 4001
+
 | Colour | Size | Qty | Unit Price | Total |
 |--------|------|-----|------------|-------|
 | Mineral | XSM | 1   | $31        | $31   |
@@ -53,6 +57,7 @@ permalink: /merch/custom/orders-summary
 ---
 
 ## 🧥 Relax Hood | 5161
+
 | Colour         | Size | Qty | Unit Price | Total |
 |----------------|------|-----|------------|-------|
 | Cypress        | XLG  | 1   | $82        | $82   |
@@ -65,6 +70,7 @@ permalink: /merch/custom/orders-summary
 ---
 
 ## 🧥 Supply Hood | 5101
+
 | Colour        | Size | Qty | Unit Price | Total |
 |---------------|------|-----|------------|-------|
 | Forest Green  | LRG  | 1   | $55        | $55   |
@@ -74,6 +80,7 @@ permalink: /merch/custom/orders-summary
 ---
 
 ## 🧥 Wo's Stencil Half Zip Crew | 4125
+
 | Colour | Size | Qty | Unit Price | Total |
 |--------|------|-----|------------|-------|
 | Black  | MED  | 1   | $61        | $61   |
