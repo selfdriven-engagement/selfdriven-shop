@@ -4,9 +4,6 @@ title: Custom Merch - selfdriven Shop
 permalink: /merch/custom/
 ---
 
-### Merch
-- [Artwork](https://github.com/selfdriven-engagement/selfdriven-shop/tree/main/merch/artwork)
-
 ### Ordering
 - [Order based on selfdriven Shop Design Template](/merch/custom/templates)
 	1. Select Template
@@ -26,4 +23,5 @@ permalink: /merch/custom/
     - Global delivery.
     - Typically 8 days from order to dispatch.
 
-
+### Merch
+- [Artwork](https://github.com/selfdriven-engagement/selfdriven-shop/tree/main/merch/artwork)
