@@ -4,7 +4,7 @@ title: Custom Merch - selfdriven Shop
 permalink: /merch/custom/
 ---
 
-### Ordering
+## Ordering
 - [Order based on selfdriven Shop Design Template](/merch/custom/templates)
 	1. Select Template
 	2. Select Colour, Size etc
@@ -18,10 +18,10 @@ permalink: /merch/custom/
 	5. Upload [artwork images](https://github.com/selfdriven-engagement/show/tree/main/merch/artwork) that you want to use in your design.
 	6. Once designed, click "ADD TO CART".
 
+
+## Related
+- [Artwork](https://github.com/selfdriven-engagement/selfdriven-shop/tree/main/merch/artwork)
 - [screenlab.co](https://screenlab.co)
     - Based in Australia.
     - Global delivery.
     - Typically 8 days from order to dispatch.
-
-### Merch
-- [Artwork](https://github.com/selfdriven-engagement/selfdriven-shop/tree/main/merch/artwork)
