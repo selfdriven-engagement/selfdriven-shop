@@ -5,7 +5,7 @@ permalink: /merch/custom/
 ---
 
 ### Merch
-- [Artwork](https://github.com/selfdriven-engagement/resources/tree/main/our-identity/merch/artwork)
+- [Artwork](https://github.com/selfdriven-engagement/selfdriven-shop/tree/main/merch/artwork)
 
 ### Ordering
 - [screenlab.co](https://screenlab.co)
