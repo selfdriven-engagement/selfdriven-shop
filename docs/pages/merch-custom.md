@@ -5,6 +5,7 @@ permalink: /merch/custom/
 ---
 
 ## Ordering
+
 - [Order based on selfdriven Shop Design Template](/merch/custom/templates)
 	1. Select Template
 	2. Select Colour, Size etc
@@ -20,7 +21,9 @@ permalink: /merch/custom/
 
 
 ## Related
+
 - [Artwork](https://github.com/selfdriven-engagement/selfdriven-shop/tree/main/merch/artwork)
+
 - [screenlab.co](https://screenlab.co)
     - Based in Australia.
     - Global delivery.
