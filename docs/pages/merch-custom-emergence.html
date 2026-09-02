@@ -1,0 +1,870 @@
+---
+layout: null
+title: Emergence Designer - selfdriven Shop
+permalink: /merch/custom/emergence
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>emergence wordmark studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f2ed; --surface:#edeae3; --surface2:#e5e1d8; --border:#ddd8ce;
+  --text:#1a1410; --muted:#6b5f52; --muted2:#9e9085;
+  --accent:#c8442f; --card-radius:20px;
+  --stage:#e9e5dd; --stage-grid:rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0a0a0a; --surface:#161616; --surface2:#1e1e1e; --border:#2a2a2a;
+    --text:#f0ede8; --muted:#b0a89e; --muted2:#7a7268;
+    --accent:#e85d4a; --stage:#141414; --stage-grid:rgba(255,255,255,.05);
+  }
+}
+*{box-sizing:border-box}
+html{height:100%}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--text);
+  font-family:Poppins,-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:14px; line-height:1.6; -webkit-font-smoothing:antialiased;
+  height:100%; display:flex; flex-direction:column; overflow:hidden;
+}
+h1{margin:0; letter-spacing:-.03em; font-weight:800; font-size:17px; line-height:1.25}
+
+.masthead{
+  display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  padding:14px 22px; border-bottom:1px solid var(--border);
+  flex:none; background:var(--bg);
+}
+.masthead svg{flex:none}
+.masthead p{margin:0; color:var(--muted); font-size:12px}
+.masthead .spacer{flex:1 1 40px}
+.masthead .name{min-width:0; max-width:46vw}
+.masthead h1{overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.actions{display:flex; gap:8px; flex:none}
+
+.layout{display:grid; grid-template-columns:minmax(0,1fr) 358px; flex:1; min-height:0}
+
+.stage{padding:22px; display:flex; flex-direction:column; gap:12px; min-width:0; min-height:0; overflow:hidden}
+.canvas-wrap{
+  background:var(--stage);
+  background-image:
+    linear-gradient(45deg,var(--stage-grid) 25%,transparent 25%,transparent 75%,var(--stage-grid) 75%),
+    linear-gradient(45deg,var(--stage-grid) 25%,transparent 25%,transparent 75%,var(--stage-grid) 75%);
+  background-size:22px 22px; background-position:0 0,11px 11px;
+  border:1px solid var(--border); border-radius:var(--card-radius);
+  padding:26px; display:flex; align-items:center; justify-content:center;
+  flex:1; min-height:0; overflow:auto;
+}
+#art{max-width:100%; max-height:100%; width:auto; height:auto; display:block}
+.stage-meta{flex:none; display:flex; flex-wrap:wrap; gap:6px 18px; align-items:center; color:var(--muted); font-size:12px}
+.stage-meta code{font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11.5px; color:var(--text)}
+.warn{color:var(--accent); font-size:12px}
+
+.rail{border-left:1px solid var(--border); background:var(--surface); display:flex; flex-direction:column; min-width:0; min-height:0}
+.rail-scroll{overflow-y:auto; overscroll-behavior:contain; padding:16px 16px 8px; flex:1; min-height:0}
+.rail-foot{border-top:1px solid var(--border); padding:14px 16px; background:var(--surface2); display:grid; gap:10px; flex:none}
+
+details.group{border:1px solid var(--border); border-radius:14px; background:var(--bg); margin-bottom:10px; overflow:hidden}
+details.group>summary{cursor:pointer; list-style:none; padding:11px 14px; font-weight:600; font-size:13px; display:flex; align-items:center; gap:8px}
+details.group>summary::-webkit-details-marker{display:none}
+details.group>summary::after{content:'+'; margin-left:auto; color:var(--muted2); font-weight:400}
+details.group[open]>summary::after{content:'\2013'}
+details.group[open]>summary{border-bottom:1px solid var(--border)}
+.group-body{padding:14px; display:grid; gap:13px}
+
+label.ctl{display:grid; gap:5px}
+label.ctl>.lab,.lab{display:flex; justify-content:space-between; align-items:baseline; gap:8px; font-size:12px; color:var(--muted)}
+.val{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text)}
+input[type=range]{width:100%; accent-color:var(--accent); height:20px}
+textarea,select{
+  width:100%; background:var(--surface); color:var(--text);
+  border:1px solid var(--border); border-radius:10px; padding:9px 11px;
+  font-family:Poppins,sans-serif; font-size:13px;
+}
+textarea{resize:vertical; min-height:70px; line-height:1.45; font-weight:600}
+input:focus-visible,textarea:focus-visible,select:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.seg{display:flex; gap:4px; background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:3px}
+.seg button{flex:1; border:0; background:transparent; color:var(--muted); font-family:inherit; font-size:12px; padding:6px 4px; border-radius:7px; cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--accent); color:#fff; font-weight:600}
+.row2{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+.row3{display:grid; grid-template-columns:repeat(3,1fr); gap:8px}
+.swatch{display:grid; gap:5px}
+.swatch input[type=color]{width:100%; height:34px; padding:2px; border:1px solid var(--border); border-radius:9px; background:var(--surface); cursor:pointer}
+.swatch span{font-size:11px; color:var(--muted)}
+.chips{display:flex; flex-wrap:wrap; gap:6px}
+.chip{border:1px solid var(--border); background:var(--surface); color:var(--text); border-radius:999px; padding:6px 11px; font-size:12px; font-family:inherit; cursor:pointer; display:inline-flex; align-items:center; gap:6px}
+.chip:hover{border-color:var(--accent); color:var(--accent)}
+.chip i{width:10px; height:10px; border-radius:3px; display:inline-block}
+button.btn{border:1px solid var(--border); background:var(--bg); color:var(--text); font-family:inherit; font-size:13px; font-weight:600; padding:9px 15px; border-radius:999px; cursor:pointer}
+button.btn:hover{border-color:var(--accent); color:var(--accent)}
+button.btn.primary{background:var(--accent); border-color:var(--accent); color:#fff}
+button.btn.primary:hover{filter:brightness(1.06); color:#fff}
+.btn-row{display:flex; gap:8px}
+.btn-row>*{flex:1}
+.hint{font-size:11.5px; color:var(--muted2); line-height:1.5; margin:0}
+.toast{position:fixed; left:50%; bottom:24px; transform:translate(-50%,14px); background:var(--text); color:var(--bg); padding:10px 18px; border-radius:999px; font-size:13px; opacity:0; pointer-events:none; transition:.22s ease; z-index:60}
+.toast.on{opacity:1; transform:translate(-50%,0)}
+
+@media (max-width:1080px){
+  body{height:auto; display:block; overflow:visible}
+  .masthead{position:sticky; top:0; z-index:20}
+  .masthead .name{max-width:100%}
+  .layout{display:block}
+  .stage{position:sticky; top:62px; z-index:10; overflow:visible; padding:12px 14px 10px; background:var(--bg); border-bottom:1px solid var(--border); gap:8px}
+  .canvas-wrap{padding:14px; max-height:32vh}
+  #art{max-height:26vh}
+  .rail{border-left:none}
+  .rail-scroll{overflow:visible}
+}
+@media (prefers-reduced-motion:reduce){ *{transition:none!important} }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <svg width="28" height="28" viewBox="0 0 42 42" aria-hidden="true">
+    <g fill="var(--accent)">
+      <polygon points="15,0 15,15 0,30 0,15"></polygon>
+      <polygon points="30,11 30,26 15,41 15,26"></polygon>
+      <polygon points="42,23 42,38 30,50 30,37"></polygon>
+    </g>
+  </svg>
+  <div class="name">
+    <h1 id="docTitle">selfdriven</h1>
+    <p>emergence wordmark studio</p>
+  </div>
+  <div class="spacer"></div>
+  <div class="actions">
+    <button class="btn" id="btnShuffle" title="Reroll the random tiles">Shuffle</button>
+    <button class="btn" id="btnReset" title="Back to the default settings, keeping your name">Reset all</button>
+    <button class="btn" id="btnShare" title="Copy a link that reopens this exact design">Copy share link</button>
+  </div>
+</header>
+
+<div class="layout">
+  <main class="stage">
+    <div class="canvas-wrap"><canvas id="art" width="10" height="10"></canvas></div>
+    <div class="stage-meta">
+      <span>Grid <code id="mGrid">–</code></span>
+      <span>Artwork <code id="mSize">–</code></span>
+      <span>Export <code id="mExport">–</code></span>
+      <span id="mWarn" class="warn"></span>
+    </div>
+  </main>
+
+  <aside class="rail">
+    <div class="rail-scroll">
+
+      <details class="group" open>
+        <summary>Wordmark</summary>
+        <div class="group-body">
+          <div class="chips">
+            <button class="chip" data-preset="original"><i style="background:#170e0d"></i>Original artwork</button>
+            <button class="chip" data-preset="emergence"><i style="background:#c8442f"></i>Source field</button>
+          </div>
+          <p class="hint" id="presetHint">Original artwork reproduces the uploaded PNG exactly — it has no letterforms, so the name is ignored until you change something. Source field rebuilds that density around your name.</p>
+          <label class="ctl">
+            <span class="lab">Name <span class="val" id="vChars">–</span></span>
+            <textarea id="text" data-state="text" spellcheck="false" rows="2">selfdriven</textarea>
+          </label>
+          <p class="hint" id="sourceNote" hidden>Showing the original artwork, so the name is not being drawn. Type here or touch any setting below to start generating from it.</p>
+          <p class="hint">One line per row of the mark, up to four. The tile alphabet is five rows tall, so everything sets in caps. The selfdriven mark always leads the first row.</p>
+          <div id="alignCtl">
+            <span class="lab">Alignment</span>
+            <div class="seg" data-seg="align">
+              <button type="button" data-v="left">Left</button>
+              <button type="button" data-v="center">Centre</button>
+              <button type="button" data-v="right">Right</button>
+            </div>
+          </div>
+          <p class="hint" id="alignHint" hidden>Alignment sets how shorter lines sit against the longest one, so it needs a second line to do anything.</p>
+          <div class="row2">
+            <label class="ctl"><span class="lab">Letter gap <span class="val" id="v-letterSpace"></span></span>
+              <input type="range" min="0" max="4" step="1" data-state="letterSpace"></label>
+            <label class="ctl"><span class="lab">Word gap <span class="val" id="v-wordSpace"></span></span>
+              <input type="range" min="1" max="6" step="1" data-state="wordSpace"></label>
+          </div>
+          <label class="ctl"><span class="lab">Line gap <span class="val" id="v-lineGap"></span></span>
+            <input type="range" min="0" max="4" step="1" data-state="lineGap"></label>
+
+          <label class="ctl"><span class="lab">Dissolve <span class="val" id="v-dissolve"></span></span>
+            <input type="range" min="0" max="0.8" step="0.01" data-state="dissolve"></label>
+          <label class="ctl"><span class="lab">Dissolve towards</span>
+            <select data-state="dissolveDir">
+              <option value="none">Everywhere evenly</option>
+              <option value="right">The right edge</option>
+              <option value="left">The left edge</option>
+              <option value="edges">Both edges</option>
+              <option value="top">The top</option>
+              <option value="bottom">The bottom</option>
+            </select></label>
+          <label class="ctl"><span class="lab">Surrounding field <span class="val" id="v-fieldDensity"></span></span>
+            <input type="range" min="0" max="1" step="0.01" data-state="fieldDensity"></label>
+          <p class="hint">Dissolve knocks tiles out of the letters. The field fills the gaps around them, which is how the letters emerge from the band rather than sit on it.</p>
+        </div>
+      </details>
+
+      <details class="group" open>
+        <summary>Colour</summary>
+        <div class="group-body">
+          <div class="row3">
+            <label class="swatch"><input type="color" data-state="ink"><span>Ink</span></label>
+            <label class="swatch"><input type="color" data-state="accent"><span>Accent</span></label>
+            <label class="swatch"><input type="color" data-state="highlight"><span>Third</span></label>
+          </div>
+          <div class="chips" id="palettes">
+            <button class="chip" data-pal="#170e0d,#c8442f,#8d3224">Emergence</button>
+            <button class="chip" data-pal="#f5f2ed,#c8442f,#e8732a">Knockout</button>
+            <button class="chip" data-pal="#4a1c40,#c8442f,#7b3a6b">Plum</button>
+            <button class="chip" data-pal="#170e0d,#e8732a,#c8442f">Ember</button>
+            <button class="chip" data-pal="#170e0d,#170e0d,#170e0d">Ink only</button>
+          </div>
+          <label class="ctl"><span class="lab">How colour lands</span>
+            <select data-state="colourMode">
+              <option value="scatter">Scattered at random</option>
+              <option value="sweep">Sweep left to right</option>
+              <option value="blend">Blend left to right</option>
+              <option value="letters">Alternate by letter</option>
+              <option value="rows">Heavier at the top</option>
+              <option value="edge">Accent on the outline</option>
+              <option value="field">Accent in the field only</option>
+            </select></label>
+          <div class="row2">
+            <label class="ctl"><span class="lab">Accent share <span class="val" id="v-accentShare"></span></span>
+              <input type="range" min="0" max="1" step="0.01" data-state="accentShare"></label>
+            <label class="ctl"><span class="lab">Third share <span class="val" id="v-highlightShare"></span></span>
+              <input type="range" min="0" max="1" step="0.01" data-state="highlightShare"></label>
+          </div>
+          <label class="ctl"><span class="lab">Opacity variation <span class="val" id="v-alphaVar"></span></span>
+            <input type="range" min="0" max="0.7" step="0.01" data-state="alphaVar"></label>
+          <label class="ctl"><span class="lab">Outlined tiles <span class="val" id="v-outlineChance"></span></span>
+            <input type="range" min="0" max="0.6" step="0.01" data-state="outlineChance"></label>
+        </div>
+      </details>
+
+
+    </div>
+
+    <div class="rail-foot">
+      <label class="ctl"><span class="lab">Export width <span class="val" id="v-exportWidth"></span></span>
+        <select data-state="exportWidth">
+          <option value="1200">1200 px — web</option>
+          <option value="2400">2400 px — small print</option>
+          <option value="3600">3600 px — chest print at 300 dpi</option>
+          <option value="4800">4800 px — full front</option>
+          <option value="6000">6000 px — oversized</option>
+        </select></label>
+      <div class="btn-row">
+        <button class="btn primary" id="btnPng">Download PNG</button>
+        <button class="btn" id="btnSvg">Download SVG</button>
+      </div>
+      <p class="hint">PNG exports on a transparent background, ready to drop onto a garment. SVG is vector, for the printer.</p>
+    </div>
+  </aside>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+/* ------------------------------------------------------------------
+   Tile alphabet — five rows tall, matching the source artwork band.
+   '#' is a tile, '.' is empty. Widths vary between three and five.
+------------------------------------------------------------------- */
+const FONT = {
+  'A':['.##.','#..#','####','#..#','#..#'],
+  'B':['###.','#..#','###.','#..#','###.'],
+  'C':['.###','#...','#...','#...','.###'],
+  'D':['###.','#..#','#..#','#..#','###.'],
+  'E':['####','#...','###.','#...','####'],
+  'F':['####','#...','###.','#...','#...'],
+  'G':['.##.','#...','#.##','#..#','.##.'],
+  'H':['#..#','#..#','####','#..#','#..#'],
+  'I':['###','.#.','.#.','.#.','###'],
+  'J':['..##','...#','...#','#..#','.##.'],
+  'K':['#..#','#.#.','##..','#.#.','#..#'],
+  'L':['#...','#...','#...','#...','####'],
+  'M':['#...#','##.##','#.#.#','#...#','#...#'],
+  'N':['#..#','##.#','#.##','#..#','#..#'],
+  'O':['.##.','#..#','#..#','#..#','.##.'],
+  'P':['###.','#..#','###.','#...','#...'],
+  'Q':['.##.','#..#','#..#','#.#.','.#.#'],
+  'R':['###.','#..#','###.','#.#.','#..#'],
+  'S':['.###','#...','.##.','...#','###.'],
+  'T':['#####','..#..','..#..','..#..','..#..'],
+  'U':['#..#','#..#','#..#','#..#','.##.'],
+  'V':['#...#','#...#','#...#','.#.#.','..#..'],
+  'W':['#...#','#...#','#.#.#','#.#.#','.#.#.'],
+  'X':['#...#','.#.#.','..#..','.#.#.','#...#'],
+  'Y':['#...#','.#.#.','..#..','..#..','..#..'],
+  'Z':['####','...#','.##.','#...','####'],
+  '0':['###','#.#','#.#','#.#','###'],
+  '1':['.#.','##.','.#.','.#.','###'],
+  '2':['###.','...#','.##.','#...','####'],
+  '3':['###.','...#','.##.','...#','###.'],
+  '4':['#..#','#..#','####','...#','...#'],
+  '5':['####','#...','###.','...#','###.'],
+  '6':['.###','#...','###.','#..#','.##.'],
+  '7':['####','...#','..#.','.#..','.#..'],
+  '8':['.##.','#..#','.##.','#..#','.##.'],
+  '9':['.##.','#..#','.###','...#','###.'],
+  '.':['.','.','.','.','#'],
+  ',':['..','..','..','.#','#.'],
+  ':':['.','#','.','#','.'],
+  ';':['..','.#','..','.#','#.'],
+  '!':['#','#','#','.','#'],
+  '?':['###.','...#','.##.','....','.#..'],
+  '-':['...','...','###','...','...'],
+  '_':['....','....','....','....','####'],
+  '/':['..#','..#','.#.','#..','#..'],
+  '\\':['#..','#..','.#.','..#','..#'],
+  '+':['...','.#.','###','.#.','...'],
+  '=':['...','###','...','###','...'],
+  '*':['#.#','.#.','#.#','...','...'],
+  '&':['.##.','#..#','.##.','#.#.','.#.#'],
+  '#':['.#.#.','#####','.#.#.','#####','.#.#.'],
+  '@':['.###.','#...#','#.##.','#....','.###.'],
+  '%':['#...#','...#.','..#..','.#...','#...#'],
+  '(':['.#','#.','#.','#.','.#'],
+  ')':['#.','.#','.#','.#','#.'],
+  '[':['##','#.','#.','#.','##'],
+  ']':['##','.#','.#','.#','##'],
+  '<':['..#','.#.','#..','.#.','..#'],
+  '>':['#..','.#.','..#','.#.','#..'],
+  "'":['#','#','.','.','.'],
+  '"':['#.#','#.#','...','...','...']
+};
+
+/* The selfdriven slash mark, measured off the source artwork.
+   Three bands with vertical end caps in a 42-unit square. */
+const MARK = [
+  [[15,0],[15,15],[0,30],[0,15]],
+  [[30,11],[30,26],[15,41],[15,26]],
+  [[45,22],[45,37],[30,52],[30,37]]
+];
+const MARK_UNIT = 42;
+
+/* The uploaded artwork, read straight off the PNG, one character per cell:
+   '.' empty · k ink · r accent · b third colour · uppercase = outlined · M = the mark.
+   46 x 5 cells, 82.6% filled, 64% ink / 34% accent — the numbers the generator is tuned to. */
+const SOURCE = [
+  'r.rrkrkkkrk..rrk.rrkkkr..krrrrk.kkk.kk..rk.rr.',
+  'Mkkkk.rkrrkrkkkkrkkrkrkkkkrkkkkr.kkrkrkkkk.kkk',
+  'rrrkkrkrk.kr.Rkk.d.kkdkdRkrr.kkrk.krk.kkkkr..k',
+  'rkkkk.kkkrk.kkkkrkDkkrkk.krkkkkRkkrrk.kkkk.kkk',
+  '..r.k.kkkrkr.rrk.kkrkkdr.k.rr.krkkkrkkrr.k.krr'
+];
+const SOURCE_TILE = 45, SOURCE_GAP = 0.314, SOURCE_RADIUS = 0.06;
+/* three tiles in the original are deliberately undersized, and five are
+   toned-down accents rather than flat ink or flat accent */
+const SOURCE_SIZES = {'2,21':0.76, '4,22':0.87, '4,43':0.47};
+const SOURCE_TONES = {'2,17':0.87, '2,21':0.42, '2,23':0.70, '3,18':0.80, '4,22':0.57};
+
+/* ---------- defaults ----------
+   Tile geometry is now fixed to the source artwork: 46px tiles on a 30% gap,
+   24% corner radius, and the selfdriven mark as a single leading tile. */
+const DEFAULTS = {
+  text:'selfdriven',
+  align:'left', letterSpace:1, wordSpace:2, lineGap:1,
+  mark:'tile', markRow:1,
+  shape:'rounded', tileSize:SOURCE_TILE, gapRatio:SOURCE_GAP, radius:SOURCE_RADIUS,
+  slashChance:0, outlineChance:0.02, jitter:0, rotate:0, sizeVar:0,
+  stagger:0, waveAmp:0, waveFreq:1,
+  ink:'#170e0d', accent:'#c8442f', highlight:'#8d3224',
+  colourMode:'scatter', accentShare:0.34, highlightShare:0.02, alphaVar:0,
+  source:false,
+  dissolve:0.06, dissolveDir:'none',
+  fieldDensity:0, fieldRows:0, fieldSpread:0, fieldFade:0.6,
+  padCells:1, showBg:false, bg:'#f5f2ed',
+  seed:7, exportWidth:3600
+};
+
+const PRESETS = {
+  original:{ source:true },
+  emergence:{ dissolve:0.14, dissolveDir:'none', fieldDensity:0.83, fieldRows:0,
+    fieldSpread:2, fieldFade:0.2, accentShare:0.34, highlightShare:0.02,
+    colourMode:'scatter', outlineChance:0.02, alphaVar:0, seed:41 }
+};
+
+let state = Object.assign({}, DEFAULTS);
+let art = null;
+
+/* ---------- helpers ---------- */
+function mulberry32(a){
+  return function(){
+    a|=0; a=a+0x6D2B79F5|0;
+    let t=Math.imul(a^a>>>15,1|a);
+    t=t+Math.imul(t^t>>>7,61|t)^t;
+    return ((t^t>>>14)>>>0)/4294967296;
+  };
+}
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+function hexToRgb(h){
+  h=h.replace('#','');
+  if(h.length===3) h=h.split('').map(c=>c+c).join('');
+  return [parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)];
+}
+function rgbToHex(r){ return '#'+r.map(v=>clamp(Math.round(v),0,255).toString(16).padStart(2,'0')).join(''); }
+function mixHex(a,b,t){
+  const A=hexToRgb(a), B=hexToRgb(b);
+  return rgbToHex([A[0]+(B[0]-A[0])*t, A[1]+(B[1]-A[1])*t, A[2]+(B[2]-A[2])*t]);
+}
+function darken(h,t){ return mixHex(h,'#000000',t); }
+function slug(s){
+  return (s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'') || 'wordmark').slice(0,42);
+}
+
+/* ---------- layout ---------- */
+function parseLine(line){
+  const cols=[]; let gi=0; const missing=[];
+  for(const raw of line){
+    const ch = raw.toUpperCase();
+    if(ch===' '){ for(let i=0;i<state.wordSpace;i++) cols.push(null); continue; }
+    const g = FONT[ch];
+    if(!g){ missing.push(raw); continue; }
+    const w = g[0].length;
+    for(let x=0;x<w;x++){
+      const bits=[];
+      for(let y=0;y<5;y++) bits.push(g[y][x]==='#');
+      cols.push({bits,gi});
+    }
+    gi++;
+    for(let i=0;i<state.letterSpace;i++) cols.push(null);
+  }
+  while(cols.length && cols[cols.length-1]===null) cols.pop();
+  while(cols.length && cols[0]===null) cols.shift();
+  return {cols,missing};
+}
+
+function buildSource(){
+  const tile = SOURCE_TILE, cell = tile*(1+SOURCE_GAP), pad = state.padCells*cell;
+  const map = {k:state.ink, r:state.accent, b:state.highlight};
+  const tiles = [];
+  SOURCE.forEach((line,gy)=>{
+    for(let gx=0; gx<line.length; gx++){
+      const ch = line[gx];
+      if(ch==='.') continue;
+      const cx = gx*cell + tile/2 + pad, cy = gy*cell + tile/2 + pad;
+      if(ch==='M'){
+        tiles.push({cx,cy,size:tile,rot:0,colour:state.ink,shape:'slash',stroke:null,alpha:1,kind:'mark'});
+        continue;
+      }
+      const low = ch.toLowerCase(), key = gy+','+gx;
+      const colour = low==='d' ? darken(state.accent, 1-(SOURCE_TONES[key]||0.7))
+                               : (map[low] || state.ink);
+      const size = tile*(SOURCE_SIZES[key] || 1);
+      tiles.push({cx, cy, size, rot:0, colour, shape:'rounded',
+        stroke: ch!==low ? darken(colour,0.55) : null, alpha:1, kind:'glyph'});
+    }
+  });
+  const cols = SOURCE[0].length, rows = SOURCE.length, ink = cell-tile;
+  return {tiles, w:cols*cell-ink+pad*2, h:rows*cell-ink+pad*2, cols, rows, cell,
+          missing:[], lineCount:1};
+}
+
+function buildArt(){
+  if(state.source) return buildSource();
+  const rnd = mulberry32(state.seed);
+  const lines = String(state.text).split('\n').slice(0,4).map(parseLine);
+  const missing = [...new Set(lines.flatMap(l=>l.missing))];
+  const bodyWidth = Math.max(0, ...lines.map(l=>l.cols.length));
+
+  const offsetX = 0;
+  const cols = bodyWidth;
+  const rows = lines.length*5 + Math.max(0,lines.length-1)*state.lineGap;
+
+  /* glyph cells */
+  const glyph = new Map();
+  lines.forEach((line,li)=>{
+    const top = li*(5+state.lineGap);
+    let shift = 0;
+    if(state.align==='center') shift = Math.round((bodyWidth-line.cols.length)/2);
+    if(state.align==='right')  shift = bodyWidth-line.cols.length;
+    line.cols.forEach((col,cx)=>{
+      if(!col) return;
+      col.bits.forEach((on,by)=>{
+        if(on) glyph.set((offsetX+shift+cx)+','+(top+by), {gi:col.gi, line:li});
+      });
+    });
+  });
+
+  /* the mark takes the place of a tile inside the block, as it does in the original */
+  let markKey = null;
+  if(state.mark !== 'none'){
+    const mr = clamp(state.markRow, 0, Math.max(0, rows-1));
+    for(let gx=0; gx<cols && !markKey; gx++) if(glyph.has(gx+','+mr)) markKey = gx+','+mr;
+    for(let gy=0; gy<rows && !markKey; gy++)
+      for(let gx=0; gx<cols && !markKey; gx++) if(glyph.has(gx+','+gy)) markKey = gx+','+gy;
+  }
+
+  /* dissolve */
+  const live = new Map();
+  const keys = [...glyph.keys()].sort();
+  for(const k of keys){
+    const [gx,gy] = k.split(',').map(Number);
+    const tx = cols>1 ? gx/(cols-1) : 0;
+    const ty = rows>1 ? gy/(rows-1) : 0;
+    let p = state.dissolve;
+    const ramp = v => Math.pow(clamp(v,0,1),2.2)*1.5;   /* holds, then falls away */
+    if(state.dissolveDir==='right')  p *= ramp(tx);
+    if(state.dissolveDir==='left')   p *= ramp(1-tx);
+    if(state.dissolveDir==='edges')  p *= ramp(Math.abs(tx-0.5)*2)*0.85;
+    if(state.dissolveDir==='top')    p *= ramp(1-ty);
+    if(state.dissolveDir==='bottom') p *= ramp(ty);
+    const survives = rnd() >= clamp(p,0,1);
+    if(survives || k===markKey) live.set(k, glyph.get(k));   /* the mark never dissolves */
+  }
+
+  /* surrounding field */
+  const field = new Set();
+  if(state.fieldDensity>0){
+    const x0=-state.fieldSpread, x1=cols+state.fieldSpread;
+    const y0=-state.fieldRows,  y1=rows+state.fieldRows;
+    for(let gy=y0; gy<y1; gy++){
+      for(let gx=x0; gx<x1; gx++){
+        const k=gx+','+gy;
+        if(glyph.has(k)) continue;
+        let d=0;
+        if(gx<0) d=Math.max(d,-gx/Math.max(1,state.fieldSpread));
+        if(gx>=cols) d=Math.max(d,(gx-cols+1)/Math.max(1,state.fieldSpread));
+        if(gy<0) d=Math.max(d,-gy/Math.max(1,state.fieldRows||1));
+        if(gy>=rows) d=Math.max(d,(gy-rows+1)/Math.max(1,state.fieldRows||1));
+        const p = state.fieldDensity * (1 - state.fieldFade*clamp(d,0,1));
+        if(rnd() < p) field.add(k);
+      }
+    }
+  }
+
+  /* neighbour test for the outline colour mode */
+  const isEdge=(gx,gy)=>{
+    for(const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1]])
+      if(!live.has((gx+dx)+','+(gy+dy))) return true;
+    return false;
+  };
+
+  const cell = state.tileSize*(1+state.gapRatio);
+  const tiles = [];
+  const push=(gx,gy,kind,meta)=>{
+    const tx = cols>1 ? clamp(gx,0,cols-1)/(cols-1) : 0;
+    const size = state.tileSize*(1 + (rnd()*2-1)*state.sizeVar);
+    const jx = (rnd()*2-1)*state.jitter*state.tileSize*state.gapRatio;
+    const jy = (rnd()*2-1)*state.jitter*state.tileSize*state.gapRatio;
+    const rot = (rnd()*2-1)*state.rotate*Math.PI/180;
+    const wave = state.waveAmp*state.tileSize*Math.sin((gx/Math.max(1,cols))*state.waveFreq*Math.PI*2);
+    const stag = (gx%2) * state.stagger * cell*0.5;
+    const cx = gx*cell + state.tileSize/2 + jx;
+    const cy = gy*cell + state.tileSize/2 + jy + wave + stag;
+
+    /* colour */
+    let colour = state.ink;
+    const r = rnd();
+    const mode = state.colourMode;
+    if(mode==='blend'){
+      colour = mixHex(state.ink, state.accent, tx);
+      if(r < state.highlightShare) colour = state.highlight;
+    } else if(mode==='sweep'){
+      if(r < state.highlightShare) colour = state.highlight;
+      else if(rnd() < clamp(tx*1.4*(state.accentShare*2),0,1)) colour = state.accent;
+    } else if(mode==='letters'){
+      const gi = meta && meta.gi!=null ? meta.gi : gx;
+      colour = (gi%2===0) ? state.ink : state.accent;
+      if(r < state.highlightShare) colour = state.highlight;
+    } else if(mode==='rows'){
+      const ty = rows>1 ? gy/(rows-1) : 0;
+      if(r < state.highlightShare) colour = state.highlight;
+      else if(rnd() < clamp((1-ty)*state.accentShare*2,0,1)) colour = state.accent;
+    } else if(mode==='edge'){
+      colour = (kind==='glyph' && isEdge(gx,gy)) ? state.accent : state.ink;
+      if(r < state.highlightShare) colour = state.highlight;
+    } else if(mode==='field'){
+      colour = kind==='field' ? state.accent : state.ink;
+      if(r < state.highlightShare) colour = state.highlight;
+    } else {
+      if(r < state.highlightShare) colour = state.highlight;
+      else if(r < state.highlightShare + state.accentShare) colour = state.accent;
+    }
+
+    /* shape */
+    let shape = state.shape;
+    if(shape==='mixed'){
+      const s = rnd();
+      shape = s<0.62 ? 'rounded' : s<0.8 ? 'circle' : s<0.92 ? 'square' : 'diamond';
+    }
+    if(state.slashChance>0 && rnd()<state.slashChance) shape='slash';
+
+    const stroke = (kind!=='mark' && rnd()<state.outlineChance) ? darken(colour,0.55) : null;
+    const alpha = 1 - rnd()*state.alphaVar;
+    tiles.push({cx,cy,size,rot,colour,shape,stroke,alpha,kind});
+  };
+
+  for(const k of keys) if(live.has(k)){
+    const [gx,gy]=k.split(',').map(Number);
+    push(gx,gy,'glyph',live.get(k));
+    if(k===markKey){
+      const t = tiles[tiles.length-1];
+      t.shape='slash'; t.colour=state.ink; t.stroke=null; t.alpha=1; t.rot=0; t.size=state.tileSize;
+    }
+  }
+  for(const k of [...field].sort()){ const [gx,gy]=k.split(',').map(Number); push(gx,gy,'field',null); }
+
+  /* bounds */
+  let minX=Infinity,minY=Infinity,maxX=-Infinity,maxY=-Infinity;
+  for(const t of tiles){
+    const h = t.size*(t.shape==='diamond'?0.72:0.5)+ (t.rot?t.size*0.22:0);
+    minX=Math.min(minX,t.cx-h); maxX=Math.max(maxX,t.cx+h);
+    minY=Math.min(minY,t.cy-h); maxY=Math.max(maxY,t.cy+h);
+  }
+  if(!tiles.length){ minX=minY=0; maxX=maxY=state.tileSize; }
+  const pad = state.padCells*cell;
+  const w = (maxX-minX)+pad*2, h = (maxY-minY)+pad*2;
+  const ox = pad-minX, oy = pad-minY;
+  for(const t of tiles){ t.cx+=ox; t.cy+=oy; }
+
+  return {tiles, w:Math.max(1,w), h:Math.max(1,h), cols, rows, cell, missing, lineCount:lines.length};
+}
+
+/* ---------- drawing ---------- */
+function roundRectPath(ctx,x,y,w,h,r){
+  r=Math.min(r,w/2,h/2);
+  if(ctx.roundRect){ ctx.beginPath(); ctx.roundRect(x,y,w,h,r); return; }
+  ctx.beginPath();
+  ctx.moveTo(x+r,y); ctx.lineTo(x+w-r,y); ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+  ctx.lineTo(x+w,y+h-r); ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+  ctx.lineTo(x+r,y+h); ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+  ctx.lineTo(x,y+r); ctx.quadraticCurveTo(x,y,x+r,y);
+  ctx.closePath();
+}
+function drawMark(ctx,s){
+  const k = s/MARK_UNIT;
+  ctx.save();
+  ctx.beginPath(); ctx.rect(-s/2,-s/2,s,s); ctx.clip();
+  ctx.beginPath();
+  for(const poly of MARK){
+    poly.forEach((p,i)=>{
+      const x=p[0]*k-s/2, y=p[1]*k-s/2;
+      if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+    });
+    ctx.closePath();
+  }
+  ctx.fill();
+  ctx.restore();
+}
+function drawTiles(ctx, a, scale){
+  ctx.save(); ctx.scale(scale,scale);
+  for(const t of a.tiles){
+    ctx.save();
+    ctx.translate(t.cx,t.cy);
+    if(t.rot) ctx.rotate(t.rot);
+    ctx.globalAlpha = t.alpha;
+    ctx.fillStyle = t.colour;
+    const s=t.size, r=state.radius*s;
+    if(t.shape==='slash'){ drawMark(ctx,s); }
+    else if(t.shape==='circle'){ ctx.beginPath(); ctx.arc(0,0,s/2,0,Math.PI*2); ctx.fill(); }
+    else if(t.shape==='diamond'){
+      ctx.save(); ctx.rotate(Math.PI/4);
+      roundRectPath(ctx,-s*0.36,-s*0.36,s*0.72,s*0.72,r*0.72); ctx.fill();
+      if(t.stroke){ ctx.strokeStyle=t.stroke; ctx.lineWidth=s*0.06; ctx.stroke(); }
+      ctx.restore(); ctx.restore(); continue;
+    }
+    else if(t.shape==='square'){ ctx.fillRect(-s/2,-s/2,s,s); }
+    else { roundRectPath(ctx,-s/2,-s/2,s,s,r); ctx.fill(); }
+    if(t.stroke && t.shape!=='slash'){
+      ctx.strokeStyle=t.stroke; ctx.lineWidth=s*0.06;
+      if(t.shape==='circle'){ ctx.beginPath(); ctx.arc(0,0,s/2-s*0.03,0,Math.PI*2); ctx.stroke(); }
+      else if(t.shape==='square'){ ctx.strokeRect(-s/2+s*0.03,-s/2+s*0.03,s-s*0.06,s-s*0.06); }
+      else { roundRectPath(ctx,-s/2+s*0.03,-s/2+s*0.03,s-s*0.06,s-s*0.06,Math.max(0,r-s*0.03)); ctx.stroke(); }
+    }
+    ctx.restore();
+  }
+  ctx.restore();
+}
+function renderTo(canvas, a, targetW, withBg){
+  const scale = targetW / a.w;
+  canvas.width = Math.round(a.w*scale);
+  canvas.height = Math.round(a.h*scale);
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  if(withBg){ ctx.fillStyle=state.bg; ctx.fillRect(0,0,canvas.width,canvas.height); }
+  drawTiles(ctx,a,scale);
+  return canvas;
+}
+
+/* ---------- SVG ---------- */
+function markSvg(t){
+  const k=t.size/MARK_UNIT, s=t.size;
+  const id='m'+Math.random().toString(36).slice(2,8);
+  const d = MARK.map(poly=>'M'+poly.map(p=>((p[0]*k-s/2).toFixed(2)+','+(p[1]*k-s/2).toFixed(2))).join('L')+'Z').join(' ');
+  return `<clipPath id="${id}"><rect x="${(-s/2).toFixed(2)}" y="${(-s/2).toFixed(2)}" width="${s.toFixed(2)}" height="${s.toFixed(2)}"/></clipPath>`+
+         `<path d="${d}" fill="${t.colour}" clip-path="url(#${id})"/>`;
+}
+function toSvg(a, withBg){
+  const parts=[];
+  parts.push(`<svg xmlns="http://www.w3.org/2000/svg" width="${a.w.toFixed(1)}" height="${a.h.toFixed(1)}" viewBox="0 0 ${a.w.toFixed(1)} ${a.h.toFixed(1)}">`);
+  if(withBg) parts.push(`<rect width="100%" height="100%" fill="${state.bg}"/>`);
+  for(const t of a.tiles){
+    const s=t.size, r=(state.radius*s).toFixed(2);
+    const tr=`translate(${t.cx.toFixed(2)} ${t.cy.toFixed(2)})`+(t.rot?` rotate(${(t.rot*180/Math.PI).toFixed(2)})`:'');
+    const op = t.alpha<1 ? ` opacity="${t.alpha.toFixed(3)}"` : '';
+    const st = t.stroke && t.shape!=='slash' ? ` stroke="${t.stroke}" stroke-width="${(s*0.06).toFixed(2)}"` : '';
+    let body;
+    if(t.shape==='slash') body = markSvg(t);
+    else if(t.shape==='circle') body = `<circle r="${(s/2).toFixed(2)}" fill="${t.colour}"${st}/>`;
+    else if(t.shape==='diamond') body = `<rect x="${(-s*0.36).toFixed(2)}" y="${(-s*0.36).toFixed(2)}" width="${(s*0.72).toFixed(2)}" height="${(s*0.72).toFixed(2)}" rx="${(state.radius*s*0.72).toFixed(2)}" fill="${t.colour}"${st} transform="rotate(45)"/>`;
+    else if(t.shape==='square') body = `<rect x="${(-s/2).toFixed(2)}" y="${(-s/2).toFixed(2)}" width="${s.toFixed(2)}" height="${s.toFixed(2)}" fill="${t.colour}"${st}/>`;
+    else body = `<rect x="${(-s/2).toFixed(2)}" y="${(-s/2).toFixed(2)}" width="${s.toFixed(2)}" height="${s.toFixed(2)}" rx="${r}" fill="${t.colour}"${st}/>`;
+    parts.push(`<g transform="${tr}"${op}>${body}</g>`);
+  }
+  parts.push('</svg>');
+  return parts.join('\n');
+}
+
+
+/* ---------- UI wiring ---------- */
+const $ = s=>document.querySelector(s);
+const canvas = $('#art');
+
+function render(){
+  art = buildArt();
+  renderTo(canvas, art, Math.min(2000, Math.max(600, art.w*1.5)), false);
+
+  /* the page is titled by whatever is in the Name field */
+  const name = String(state.text).split('\n').map(l=>l.trim()).filter(Boolean).join(' ');
+  $('#docTitle').textContent = name || 'Untitled';
+  document.title = (name || 'Untitled') + ' — emergence wordmark studio';
+
+  /* alignment only means something once there is a second line to align against */
+  const multi = art.lineCount > 1 && !state.source;
+  $('#alignCtl').hidden = !multi;
+  $('#alignHint').hidden = multi || state.source;
+  $('#sourceNote').hidden = !state.source;
+
+  const cm = state.exportWidth/300*2.54;
+  $('#mGrid').textContent = art.cols+' × '+art.rows+' cells';
+  $('#mSize').textContent = Math.round(art.w)+' × '+Math.round(art.h);
+  $('#mExport').textContent = state.exportWidth+' px ≈ '+cm.toFixed(1)+' cm at 300 dpi';
+  $('#mWarn').textContent = state.source ? 'Original artwork, reproduced cell for cell'
+    : (art.missing.length ? ('Not in the alphabet: '+art.missing.join(' ')) : '');
+  $('#vChars').textContent = art.tiles.length+' tiles';
+  clearTimeout(hashTimer); hashTimer = setTimeout(writeHash, 400);
+}
+
+let rafId=null, hashTimer=null;
+function scheduleRender(){ if(rafId) cancelAnimationFrame(rafId); rafId=requestAnimationFrame(()=>{rafId=null; render();}); }
+
+function formatVal(k,v){
+  const pct=['accentShare','highlightShare','alphaVar','outlineChance','dissolve','fieldDensity','fieldFade'];
+  if(pct.includes(k)) return Math.round(v*100)+'%';
+  return v;
+}
+function syncControls(){
+  document.querySelectorAll('[data-state]').forEach(el=>{
+    el.value = state[el.dataset.state];
+    const out = document.getElementById('v-'+el.dataset.state);
+    if(out) out.textContent = formatVal(el.dataset.state, state[el.dataset.state]);
+  });
+  document.querySelectorAll('[data-seg]').forEach(seg=>{
+    seg.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.v===state[seg.dataset.seg])));
+  });
+}
+
+document.querySelectorAll('[data-state]').forEach(el=>{
+  const k = el.dataset.state;
+  const handler = ()=>{
+    state[k] = (el.type==='range' || k==='exportWidth') ? Number(el.value) : el.value;
+    /* colour and export apply to the original too; anything else means generate */
+    if(!SOURCE_SAFE.includes(k)) state.source = false;
+    const out = document.getElementById('v-'+k);
+    if(out) out.textContent = formatVal(k, state[k]);
+    scheduleRender();
+  };
+  el.addEventListener('input', handler);
+  el.addEventListener('change', handler);
+});
+
+const SOURCE_SAFE = ['ink','accent','highlight','exportWidth'];
+
+document.querySelectorAll('[data-seg]').forEach(seg=>{
+  seg.addEventListener('click', e=>{
+    const b = e.target.closest('button'); if(!b) return;
+    state[seg.dataset.seg] = b.dataset.v; state.source = false;
+    seg.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed', String(x===b)));
+    scheduleRender();
+  });
+});
+
+/* a starting point never touches the name or the export settings */
+function keepers(){ return {text:state.text, exportWidth:state.exportWidth}; }
+
+document.addEventListener('click', e=>{
+  const b = e.target.closest('[data-preset]'); if(!b) return;
+  state = Object.assign({}, DEFAULTS, PRESETS[b.dataset.preset], keepers());
+  syncControls(); render();
+});
+$('#palettes').addEventListener('click', e=>{
+  const b = e.target.closest('[data-pal]'); if(!b) return;
+  const [ink,accent,highlight] = b.dataset.pal.split(',');
+  Object.assign(state,{ink,accent,highlight});
+  syncControls(); render();
+});
+$('#btnShuffle').addEventListener('click', ()=>{
+  state.seed = 1+Math.floor(Math.random()*9999); state.source = false;
+  render(); toast('Seed '+state.seed);
+});
+$('#btnReset').addEventListener('click', ()=>{
+  state = Object.assign({}, DEFAULTS, keepers());
+  syncControls(); render(); toast('Back to the defaults');
+});
+
+function stem(){ return state.source ? 'selfdriven-logo-emergence' : slug(state.text)+'-emergence'; }
+function download(blob,name){
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href=url; a.download=name;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url), 4000);
+}
+$('#btnPng').addEventListener('click', ()=>{
+  const off = document.createElement('canvas');
+  renderTo(off, art, state.exportWidth, false);
+  off.toBlob(b=>{
+    download(b, stem()+'-'+state.exportWidth+'.png');
+    toast('PNG saved at '+off.width+' × '+off.height);
+  },'image/png');
+});
+$('#btnSvg').addEventListener('click', ()=>{
+  download(new Blob([toSvg(art,false)],{type:'image/svg+xml'}), stem()+'.svg');
+  toast('SVG saved — vector, scales to any size');
+});
+
+function writeHash(){
+  try{ history.replaceState(null,'','#'+btoa(unescape(encodeURIComponent(JSON.stringify(state))))); }catch(e){}
+}
+function readHash(){
+  if(!location.hash || location.hash.length<4) return;
+  try{ state = Object.assign({}, DEFAULTS, JSON.parse(decodeURIComponent(escape(atob(location.hash.slice(1)))))); }catch(e){}
+}
+$('#btnShare').addEventListener('click', async()=>{
+  writeHash();
+  try{ await navigator.clipboard.writeText(location.href); toast('Link copied — it reopens this exact design'); }
+  catch(e){ toast('Copy the address bar to share this design'); }
+});
+
+let toastTimer=null;
+function toast(msg){
+  const t=$('#toast'); t.textContent=msg; t.classList.add('on');
+  clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove('on'),2400);
+}
+
+readHash();
+syncControls();
+render();
+</script>
+</body>
+</html>
